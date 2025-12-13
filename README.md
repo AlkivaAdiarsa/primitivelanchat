@@ -1,13 +1,10 @@
 # Primitive LAN chat made using python
 [How to use](#how-to-use) | [How It works](#how-it-works) 
 
-libraries used:
-```python
-import socket
-import threading
-import tkinter as tk
-from tkinter import simpledialog, scrolledtext, messagebox
-```
+## install project
+first, install python if not existing [here](https://www.python.org/downloads/)
+
+then, download the project by downloading source code (zip or tar.gz) [here](https://github.com/AlkivaAdiarsa/primitivelanchat/releases/tag/versions) and unzipping it.
 
 ## How to use
 after opening the program, it will show two windows
@@ -19,8 +16,18 @@ the small one is for setting up the application.
 to start, click the small dialogbox. 
 type ```server``` to setup your device as a server, or type ```client < server ip address>```, for example ```client 127.0.0.1``` (localhost).
 to be a ```client```, you have to get your server's ip address
+
 ## How it works
+
 How the ``chat.py`` Code Works
+
+libraries used:
+```python
+import socket
+import threading
+import tkinter as tk
+from tkinter import simpledialog, scrolledtext, messagebox
+```
 
 This document explains the functionality and structure of the chat.py script from the PrimitiveLanChat project, including key code snippets to illustrate its workings.
 

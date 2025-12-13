@@ -20,7 +20,8 @@ def handle_client(conn, addr, chat_box):
             if not msg:
                 break
             broadcast = f"{addr[0]}: {msg.decode()}"
-            chat_box.insert(tk.END, broadcast + "\n")
+            message = f"{msg.decode()}"
+            chat_box.insert(tk.END, message + "\n")
             chat_box.yview(tk.END)
 
             for c in clients:
@@ -60,7 +61,10 @@ def run_client(server_ip, chat_box, entry_field):
     threading.Thread(target=listen, daemon=True).start()
 
     def send_msg(event=None):
+        global username
         text = entry_field.get()
+        text = f"[{username}]: " + text
+        chat_box.insert(tk.END, f"{text}\n")
         if text:
             sock.sendall(text.encode())
             entry_field.delete(0, tk.END)
@@ -69,6 +73,8 @@ def run_client(server_ip, chat_box, entry_field):
 
 # ---------------- GUI APP ----------------
 def start_app():
+    global username
+
     root = tk.Tk()
     root.title("LAN/Internet Chat")
 
@@ -99,6 +105,11 @@ def start_app():
 
     elif mode and mode.lower().startswith("client"):
         parts = mode.split()
+
+        username = simpledialog.askstring("username", "enter username")
+        if len(username) < 2: simpledialog.askstring("warning", "username has to be longer than 2 characters")
+
+
         if len(parts) < 2:
             messagebox.showerror("Error", "You must provide server IP: client <IP>")
             root.destroy()
@@ -117,3 +128,4 @@ def start_app():
 
 if __name__ == "__main__":
     start_app()
+

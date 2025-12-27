@@ -1,3 +1,5 @@
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/766b6c8d-44bd-446c-9a5a-92d02386de39" />
+
 # Primitive LAN chat made using python
 [How to use](#how-to-use) | [How It works](#how-it-works) 
 
